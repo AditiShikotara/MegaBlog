@@ -1,0 +1,6 @@
+/* Global app-level overrides that don't belong in Tailwind utility classes. */
+
+.tox-tinymce {
+  border-radius: 0.75rem !important;
+  border-color: #E1D6B8 !important;
+}

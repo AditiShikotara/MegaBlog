@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-paper text-ink font-sans antialiased;
+  }
+
+  ::selection {
+    @apply bg-amber-soft text-ink;
+  }
+
+  :focus-visible {
+    outline: 2px solid #1F5C46;
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  /* Spine mark: a signature rule that sits beside every major heading,
+     nodding to the spine of a bound journal. */
+  .spine-heading {
+    @apply relative pl-4;
+  }
+  .spine-heading::before {
+    content: "";
+    @apply absolute left-0 top-1 bottom-1 w-[3px] rounded-full bg-amber;
+  }
+
+  .eyebrow {
+    @apply font-mono text-xs uppercase tracking-[0.18em] text-forest;
+  }
+
+  /* Typography for TinyMCE-authored post bodies (react-html-parse output). */
+  .article-content {
+    @apply text-[1.05rem] leading-[1.8] text-ink;
+  }
+  .article-content > * + * {
+    @apply mt-5;
+  }
+  .article-content h1,
+  .article-content h2,
+  .article-content h3 {
+    @apply font-display font-semibold leading-snug text-ink;
+  }
+  .article-content h1 { @apply text-3xl mt-10; }
+  .article-content h2 { @apply text-2xl mt-9; }
+  .article-content h3 { @apply text-xl mt-8; }
+  .article-content p { @apply text-ink-soft; }
+  .article-content a {
+    @apply text-forest underline decoration-amber decoration-2 underline-offset-2 hover:text-forest-dark;
+  }
+  .article-content strong { @apply text-ink font-semibold; }
+  .article-content ul, .article-content ol {
+    @apply pl-6 text-ink-soft;
+  }
+  .article-content ul { @apply list-disc; }
+  .article-content ol { @apply list-decimal; }
+  .article-content blockquote {
+    @apply border-l-[3px] border-amber pl-4 italic text-ink-soft font-display text-lg;
+  }
+  .article-content img {
+    @apply rounded-xl border border-line;
+  }
+  .article-content code {
+    @apply rounded bg-paper-dark px-1.5 py-0.5 font-mono text-sm;
+  }
+  .article-content table {
+    @apply w-full border-collapse text-sm;
+  }
+  .article-content th, .article-content td {
+    @apply border border-line px-3 py-2 text-left;
+  }
+}
